@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity multiplicador is
     generic(
-        TOTAL_SIZE : natural := 22;  -- ancho total (1 bit signo + EXP_SIZE + mantSize)
+        TOTAL_SIZE : natural := 12+6+1;  -- ancho total (1 bit signo + EXP_SIZE + mantSize)
         EXP_SIZE   : natural := 6    -- bits de exponente
     );
     port(

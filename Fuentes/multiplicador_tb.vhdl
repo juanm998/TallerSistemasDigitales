@@ -11,7 +11,7 @@ architecture pf_testbench_arq of pf_testbench is
 
     constant TCK          : time    := 20 ns;
     constant DELAY        : natural := 1;
-    constant WORD_SIZE_T  : natural := 15 + 6 + 1; -- 22 bits
+    constant WORD_SIZE_T  : natural := 12 + 6 + 1; 
     constant EXP_SIZE_T   : natural := 6;
 
     signal clk       : std_logic := '0';
@@ -28,11 +28,11 @@ architecture pf_testbench_arq of pf_testbench is
     signal z_duv_aux : std_logic_vector(WORD_SIZE_T-1 downto 0) := (others => '0');
     signal z_del_aux : std_logic_vector(WORD_SIZE_T-1 downto 0) := (others => '0');
     
-    file datos : text open read_mode is "fmul_15_6.txt";
+    file datos : text open read_mode is "fmul_12_6.txt";
 
     component multiplicador is
         generic (
-            TOTAL_SIZE : natural := 22;
+            TOTAL_SIZE : natural := 12+6+1;
             EXP_SIZE   : natural := 6
         );
         port (

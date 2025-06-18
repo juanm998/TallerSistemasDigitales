@@ -9,12 +9,12 @@ end entity pf_testbench;
 architecture pf_testbench_arq of pf_testbench is
     constant TCK         : time    := 20 ns;
     constant DELAY       : natural := 1;
-    constant WORD_SIZE_T : natural := 19;
+    constant WORD_SIZE_T : natural := 12+6+1;
     constant EXP_SIZE_T  : natural := 6;
 
     signal rst           : std_logic := '1';
     signal clk           : std_logic := '0';
-    signal sel           : std_logic := '0';
+    signal sel           : std_logic := '0'; -- '0' suma: '1' resta
     signal a_file        : unsigned(WORD_SIZE_T-1 downto 0) := (others => '0');
     signal b_file        : unsigned(WORD_SIZE_T-1 downto 0) := (others => '0');
     signal z_file        : unsigned(WORD_SIZE_T-1 downto 0) := (others => '0');
@@ -29,18 +29,18 @@ architecture pf_testbench_arq of pf_testbench is
 
     file datos : text open read_mode is "fadd_12_6.txt";
 
-    component sum_rest is
+    component suma_resta is
         generic(
-            TOTAL_SIZE : natural := 19;
-            EXP_SIZE   : natural := 6
+            TAM_PALABRA         : natural := 12+6+1;  -- ancho total del dato (signo+exponente+mantisa)
+            TAM_EXP             : natural := 6    -- ancho del campo exponente
         );
         port(
-            rst_i           : in  std_logic;
-            clk_i           : in  std_logic;
-            sum_rest_select : in  std_logic;
-            operandoA_i     : in  std_logic_vector(TOTAL_SIZE-1 downto 0);
-            operandoB_i     : in  std_logic_vector(TOTAL_SIZE-1 downto 0);
-            resultado_o     : out std_logic_vector(TOTAL_SIZE-1 downto 0)
+            clk                 : in  std_logic;                            -- señal de reloj
+            rst                 : in  std_logic;                            -- señal de reset síncrono
+            dato_a              : in  std_logic_vector(TAM_PALABRA-1 downto 0);
+            dato_b              : in  std_logic_vector(TAM_PALABRA-1 downto 0);
+            operacion           : in  std_logic;                            -- '0' = suma, '1' = resta
+            resultado           : out std_logic_vector(TAM_PALABRA-1 downto 0) -- salida registrada
         );
     end component;
 
@@ -89,18 +89,18 @@ begin
         wait;
     end process Test_Sequence;
 
-    DUV: sum_rest
+    DUV: suma_resta
         generic map(
-            TOTAL_SIZE => WORD_SIZE_T,
-            EXP_SIZE   => EXP_SIZE_T
+            TAM_PALABRA => WORD_SIZE_T,
+            TAM_EXP   => EXP_SIZE_T
         )
         port map(
-            rst_i           => rst,
-            clk_i           => clk,
-            sum_rest_select => sel,
-            operandoA_i     => std_logic_vector(a_file),
-            operandoB_i     => std_logic_vector(b_file),
-            resultado_o     => z_duv_aux
+            rst           => rst,
+            clk           => clk,
+            operacion     => sel,
+            dato_a        => std_logic_vector(a_file),
+            dato_b        => std_logic_vector(b_file),
+            resultado     => z_duv_aux
         );
 
     z_duv <= unsigned(z_duv_aux);

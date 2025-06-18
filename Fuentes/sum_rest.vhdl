@@ -2,27 +2,65 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity sum_rest is
+-- =====================================================================
+--  Sumador/restador en formato flotante sign-magnitude de 19 bits
+--  Formato: S | Exponente(6) | Mantisa(12)
+--  • Bias = 0 (exponente sin sesgo)
+--  • Bit oculto implícito cuando Exponente ≠ 0
+--  • Saturación simétrica: exp = "111110", mant = "111…1"
+--  • Sin redondeo: los desplazamientos simplemente TRUNCAN
+--  • Un registro de latencia (la TB lo tiene en cuenta)
+-- =====================================================================
+
+entity suma_resta is
     generic(
-        TOTAL_SIZE : natural := 19;  -- ancho total (signo + exponente + mantisa)
-        EXP_SIZE   : natural := 6    -- bits de exponente
+        TAM_PALABRA : natural := 12+6+1;  -- 1 signo + 6 exp + 12 mant
+        TAM_EXP     : natural := 6    -- bits de exponente
     );
     port(
-        rst_i           : in  std_logic;
-        clk_i           : in  std_logic;
-        sum_rest_select : in  std_logic;                                 -- 0 = sumar / 1 = restar
-        operandoA_i     : in  std_logic_vector(TOTAL_SIZE-1 downto 0);
-        operandoB_i     : in  std_logic_vector(TOTAL_SIZE-1 downto 0);
-        resultado_o     : out std_logic_vector(TOTAL_SIZE-1 downto 0)
+        clk        : in  std_logic;
+        rst        : in  std_logic;
+        dato_a     : in  std_logic_vector(TAM_PALABRA-1 downto 0);
+        dato_b     : in  std_logic_vector(TAM_PALABRA-1 downto 0);
+        operacion  : in  std_logic;      -- '0' = suma, '1' = resta
+        resultado  : out std_logic_vector(TAM_PALABRA-1 downto 0)
     );
-end entity sum_rest;
+end entity;
 
-architecture sum_rest_arq of sum_rest is
+architecture suma_resta_arq of suma_resta is
+    ---------------------------------------------------------------------------
+    --  Cálculo de tamaños derivados
+    ---------------------------------------------------------------------------
+    constant TAM_SIGNIFICAND : natural := TAM_PALABRA - TAM_EXP - 1;  -- 12 bits
 
+    ---------------------------------------------------------------------------
+    --  Constantes de formato
+    ---------------------------------------------------------------------------                
+    constant EXP_MAX_FINITO  : unsigned(TAM_EXP-1 downto 0) := to_unsigned(2**TAM_EXP-2, TAM_EXP); -- 62 = "111110"            -- 13 bits (con bit oculto)
+    constant MANT_MAX        : std_logic_vector(TAM_SIGNIFICAND-1 downto 0) := (others => '1'); -- 12 bits
+    constant ZERO_EXP        : std_logic_vector(TAM_EXP-1 downto 0) := (others => '0');
+    constant ZERO_MAN        : std_logic_vector(TAM_SIGNIFICAND-1 downto 0) := (others => '0');
     ----------------------------------------------------------------------------
-    --  Función para contar cuántos ceros preceden al primer '1'
+    --Funciones Utiles
     ----------------------------------------------------------------------------
-    function count_leading_zeros(v : std_logic_vector) return integer is
+        function shift_right_ones(A : unsigned; N : natural) return unsigned is
+        variable shifted : unsigned(A'range);
+        variable result  : unsigned(A'range);
+    begin
+        
+        shifted := shift_right(A, N);
+        result := shifted;
+
+        if N >= A'length then
+            result := (others => '1');
+        else
+            result(A'left downto A'left-N+1) := (others => '1');
+        end if;
+        return result;
+    end function;
+
+    -- Conteo de ceros líderes (para normalizar)
+    function contar_ceros_lider(v : std_logic_vector) return integer is
         variable cnt : integer := 0;
     begin
         for i in v'high downto v'low loop
@@ -32,208 +70,173 @@ architecture sum_rest_arq of sum_rest is
                 cnt := cnt + 1;
             end if;
         end loop;
-        return cnt;  -- si todo es '0', devuelve la longitud completa
-    end function count_leading_zeros;
+        return cnt;
+    end function;
 
-    signal zeros : integer := 0;
+    ---------------------------------------------------------------------------
+    --  Registros de I/O y señales internas
+    ---------------------------------------------------------------------------
+    signal reg_dato_a, reg_dato_b : std_logic_vector(TAM_PALABRA-1 downto 0) := (others => '0');
+    signal reg_operacion          : std_logic;
+    signal reg_resultado_o        : std_logic_vector(TAM_PALABRA-1 downto 0) := (others => '0');
+    signal reg_resultado_d        : std_logic_vector(TAM_PALABRA-1 downto 0) := (others => '0');
 
-    ----------------------------------------------------------------------------
-    --  Constantes derivadas de TOTAL_SIZE y EXP_SIZE
-    ----------------------------------------------------------------------------
-    constant SGFC_SIZE      : natural := TOTAL_SIZE - EXP_SIZE - 1;       
-    constant MAX_EXP_NORMAL : integer := 2**EXP_SIZE - 2;               -- exponente máximo normal antes de Inf (valido)
-    constant ZERO_MAN       : std_logic_vector(SGFC_SIZE-1 downto 0) := (others => '0'); -- mantisa cero para Inf
-    constant ONE_MAN         : std_logic_vector(SGFC_SIZE-1 downto 0) := (others => '1'); -- mantisa cero para Inf
-    constant ZERO_EXP       : std_logic_vector(EXP_SIZE-1 downto 0)    := (others => '0');
+    -- Campos desempaquetados
+    signal signo_a, signo_b                 : std_logic;
+    signal exp_a, exp_b, dif_exponentes     : unsigned(TAM_EXP-1 downto 0);
+    signal a_prima, b_prima                 : unsigned(TAM_PALABRA-1 downto 0);
+    signal mantisa_a,mantisa_b              : unsigned(TAM_SIGNIFICAND downto 0);
+    signal mantisa_b_prima_inter            : unsigned(TAM_SIGNIFICAND downto 0);
+    signal reg_p_bit                        : unsigned(TAM_SIGNIFICAND + 1 downto 0); --para la guarda
+    signal significand_b_shifted            : unsigned(TAM_SIGNIFICAND + 1 downto 0);
+    signal exp_resultado_tent               : unsigned(TAM_EXP-1 downto 0);
+    signal mantisa_pre_sum                  : unsigned(TAM_SIGNIFICAND downto 0);
+    signal mantisa_sum                      : unsigned(TAM_SIGNIFICAND + 1 downto 0); --uno mas para el carry-out
+    signal mantisa_preliminar               : unsigned(TAM_SIGNIFICAND  downto 0);
+    signal mantisa_ext                      : unsigned(TAM_SIGNIFICAND + 1 downto 0); -- 13 bits + 1 para shiftear con el bit de guarda
 
-    -- Señales para detectar “operando = 0”
-    signal is_zero_a, is_zero_b : std_logic := '0';
+    --flags
+    signal zero_a,zero_b      : std_logic;
+    signal swap               : std_logic;
+    signal sign_difrent       : std_logic;
+    signal guarda             : std_logic;
+    signal carry              : std_logic;
+    signal complemento_paso_4 : std_logic;
 
-    ----------------------------------------------------------------------------
-    --  Señales registradas (pipeline de entrada/salida)
-    ----------------------------------------------------------------------------
-    signal reg_opA         : std_logic_vector(TOTAL_SIZE-1 downto 0) := (others => '0');
-    signal reg_opB         : std_logic_vector(TOTAL_SIZE-1 downto 0) := (others => '0');
-    signal reg_resultado_d : std_logic_vector(TOTAL_SIZE-1 downto 0) := (others => '0');  -- resultado combinacional
-    signal reg_resultado_o : std_logic_vector(TOTAL_SIZE-1 downto 0) := (others => '0');  -- salida registrada
-
-    ----------------------------------------------------------------------------
-    --  Señales internas para cálculo de punto flotante
-    ----------------------------------------------------------------------------
-    signal exp_a, exp_b               : std_logic_vector(EXP_SIZE-1 downto 0);
-    signal dif_exp                    : signed(EXP_SIZE downto 0); --1 bit mas para ver comparar
-    signal sign_grande, sign_chico    : std_logic;
-    signal exp_grande, exp_chico      : std_logic_vector(EXP_SIZE-1 downto 0);
-    signal sgfc_grande, sgfc_chico    : std_logic_vector(SGFC_SIZE-1 downto 0);
-
-    signal mant_grande, mant_chico     : signed(SGFC_SIZE downto 0);
-    signal mant_chico_shifted          : signed(SGFC_SIZE downto 0);
-
-    signal mant_sum                   : signed(SGFC_SIZE+1 downto 0):= (others => '0'); --bit extra
-    signal signo_result               : std_logic;
-    signal exp_inter                  : signed(EXP_SIZE downto 0):= (others => '0');
-
-    signal mant_norm                  : std_logic_vector(SGFC_SIZE downto 0):= (others => '0');
-    signal exp_norm                   : signed(EXP_SIZE downto 0) := (others => '0');
+    signal sign_r : std_logic;
+    signal exp_r  : std_logic_vector(TAM_EXP-1 downto 0);
+    signal sgnf_r : std_logic_vector(TAM_SIGNIFICAND-1 downto 0);
+    
 
 begin
-
-    ----------------------------------------------------------------------------
-    --  Proceso síncrono: reset + registro de entradas y registro de salida
-    ----------------------------------------------------------------------------
-    pipeline_regs: process(clk_i, rst_i)
+    process(clk, rst) 
     begin
-        if rst_i = '1' then
-            reg_opA         <= (others => '0');
-            reg_opB         <= (others => '0');
+        if rst = '1' then
+            reg_dato_a <= (others => '0');
+            reg_dato_b <= (others => '0');
+            reg_operacion <= '0';
             reg_resultado_o <= (others => '0');
-        elsif rising_edge(clk_i) then
-            -- Capturar entradas
-            reg_opA         <= operandoA_i;
-            reg_opB         <= operandoB_i;
-            -- Registrar el resultado calculado combinacionalmente
+        elsif clk='1' and clk'event then                    
+            reg_dato_a <= dato_a;
+            reg_dato_b <= dato_b;
+            reg_operacion <= operacion;
             reg_resultado_o <= reg_resultado_d;
         end if;
-    end process pipeline_regs;
+    end process;
+    ---------------------------------------------------------------------------
+    --  Paso 1
+    ---------------------------------------------------------------------------
+    --extraigo exponentes
+    exp_a    <= unsigned(reg_dato_a(TAM_PALABRA-2 downto TAM_SIGNIFICAND));
+    exp_b    <= unsigned(reg_dato_b(TAM_PALABRA-2 downto TAM_SIGNIFICAND));
+
+    swap <= '1' when exp_a < exp_b else '0'; 
+    --swapeo si swap es 1
+    a_prima <= unsigned(reg_dato_a(TAM_PALABRA-1 downto 0)) when swap = '0' else unsigned(reg_dato_b(TAM_PALABRA-1 downto 0));
+    b_prima <= unsigned(reg_dato_b(TAM_PALABRA-1 downto 0)) when swap = '0' else unsigned(reg_dato_a(TAM_PALABRA-1 downto 0));
+    --elijo tentativamente el exponente de a si no hubo swap (deberia ser si swap = 1 )
+    exp_resultado_tent <= exp_a(TAM_EXP-1 downto 0) when swap = '0' else exp_b(TAM_EXP-1 downto 0);
+
+    zero_a <= '1'
+        when (   reg_dato_a(TAM_PALABRA-2 downto TAM_SIGNIFICAND) = ZERO_EXP
+                and reg_dato_a(TAM_SIGNIFICAND-1 downto 0)       = ZERO_MAN )
+        else '0';
+
+    zero_b <= '1'
+        when (   reg_dato_b(TAM_PALABRA-2 downto TAM_SIGNIFICAND) = ZERO_EXP
+                and reg_dato_b(TAM_SIGNIFICAND-1 downto 0)       = ZERO_MAN )
+        else '0';
+    -------------------------------------------------------------------------
+    --  Paso 2
+    -------------------------------------------------------------------------
+
+    signo_a       <= reg_dato_a(TAM_PALABRA-1);
+    signo_b       <= reg_dato_b(TAM_PALABRA-1) when reg_operacion = '0' else not reg_dato_b(TAM_PALABRA-1);
+    sign_difrent  <= '1' when signo_a /= signo_b else '0';
+    
+    mantisa_b <= '1' & b_prima(TAM_SIGNIFICAND-1 downto 0);
+    mantisa_b_prima_inter <= ((not mantisa_b(TAM_SIGNIFICAND downto 0)) + 1) when sign_difrent = '1' else mantisa_b(TAM_SIGNIFICAND downto 0);
+
+    -------------------------------------------------------------------------
+    --  Paso 3
+    -------------------------------------------------------------------------
+
+    reg_p_bit  <= mantisa_b_prima_inter(TAM_SIGNIFICAND downto 0) & '0';
+
+    dif_exponentes <= exp_a - exp_b;
+
+    --En el LSB tiene la guarda
+    significand_b_shifted <=  shift_right(reg_p_bit, to_integer(dif_exponentes)) when sign_difrent = '0' else shift_right_ones(reg_p_bit, to_integer(dif_exponentes));
+
+    guarda <= significand_b_shifted(significand_b_shifted'right);
+    
+    mantisa_pre_sum <= guarda & significand_b_shifted(TAM_SIGNIFICAND downto 1);
+
+    -------------------------------------------------------------------------
+    --  Paso 4
+    -------------------------------------------------------------------------
+
+    mantisa_a <= '1' & a_prima(TAM_SIGNIFICAND-1 downto 0);
+    mantisa_sum <= unsigned('0' & mantisa_a) + unsigned('0' & mantisa_pre_sum);
+    carry <= mantisa_sum(mantisa_sum'left);
+    complemento_paso_4 <= '1' when (sign_difrent = '1' and mantisa_sum(mantisa_sum'left-1) = '1' and carry = '0') else '0';
+
+    mantisa_preliminar <= ((not mantisa_sum(TAM_SIGNIFICAND downto 0)) + 1) when 
+                                                    complemento_paso_4 = '1' else 
+                                                    mantisa_sum(TAM_SIGNIFICAND downto 0);
+    
+    -------------------------------------------------------------------------
+    --  Paso 5
+    -------------------------------------------------------------------------
+    process(mantisa_preliminar, exp_resultado_tent, sign_difrent, carry)
+    begin
+        if sign_difrent = '0' and carry ='1' then
+            sgnf_r <= carry & std_logic_vector(mantisa_preliminar(TAM_SIGNIFICAND downto 2));
+            exp_r  <= std_logic_vector(exp_resultado_tent + 1);
+        else
+            mantisa_ext <= mantisa_preliminar(TAM_SIGNIFICAND downto 0) & guarda;
+            sgnf_r <= std_logic_vector(shift_left(mantisa_ext, contar_ceros_lider(std_logic_vector(mantisa_ext)))(TAM_SIGNIFICAND downto 1));
+            exp_r  <= std_logic_vector(exp_resultado_tent - contar_ceros_lider(std_logic_vector(mantisa_ext)));
+        end if ;
+
+    end process;
     
 
-    ----------------------------------------------------------------------------
-    --  Extraer exponente de A y B desde los registros
-    ----------------------------------------------------------------------------
-    exp_a <= reg_opA(TOTAL_SIZE-2 downto SGFC_SIZE);
-    exp_b <= reg_opB(TOTAL_SIZE-2 downto SGFC_SIZE);
-
-    ----------------------------------------------------------------------------
-    --  Comparar exponentes para distinguir “grande” vs “chico”
-    ----------------------------------------------------------------------------
-    dif_exp <= signed('0' & exp_a) - signed('0' & exp_b);
-
-    sign_grande <= reg_opA(TOTAL_SIZE-1) when dif_exp(EXP_SIZE) = '0'
-                else reg_opB(TOTAL_SIZE-1);
-    exp_grande  <= reg_opA(TOTAL_SIZE-2 downto SGFC_SIZE) when dif_exp(EXP_SIZE) = '0'
-                else reg_opB(TOTAL_SIZE-2 downto SGFC_SIZE);
-    sgfc_grande <= reg_opA(SGFC_SIZE-1 downto 0) when dif_exp(EXP_SIZE) = '0'
-                else reg_opB(SGFC_SIZE-1 downto 0);
-
-    sign_chico  <= reg_opB(TOTAL_SIZE-1) when dif_exp(EXP_SIZE) = '0'
-                else reg_opA(TOTAL_SIZE-1);
-    exp_chico   <= reg_opB(TOTAL_SIZE-2 downto SGFC_SIZE) when dif_exp(EXP_SIZE) = '0'
-                else reg_opA(TOTAL_SIZE-2 downto SGFC_SIZE);
-    sgfc_chico  <= reg_opB(SGFC_SIZE-1 downto 0) when dif_exp(EXP_SIZE) = '0'
-                else reg_opA(SGFC_SIZE-1 downto 0);
-
-    ----------------------------------------------------------------------------
-    --  Detectar cero en A y B
-    ----------------------------------------------------------------------------
-    is_zero_a <= '1' when exp_a = ZERO_EXP and reg_opA(SGFC_SIZE-1 downto 0) = ZERO_MAN
-                    else '0';
-
-    is_zero_b <= '1' when exp_b = ZERO_EXP and reg_opB(SGFC_SIZE-1 downto 0)  = ZERO_MAN
-                else '0';
-
-
-    ----------------------------------------------------------------------------
-    --  Formar las mantizas con bit implícito = '1'
-    --    ( que no hay entradas subnormales; exp=0 => cero)
-    ----------------------------------------------------------------------------
-    mant_grande <= '1' & signed(sgfc_grande);
-    mant_chico  <= '1' & signed(sgfc_chico);
-
-    ----------------------------------------------------------------------------
-    --  Alinear mantisa “chica”: desplazar a la derecha
-    ----------------------------------------------------------------------------
-    mant_chico_shifted <= shift_right(mant_chico, abs(to_integer(signed('0' & exp_grande) - signed('0' & exp_chico))));
-    
-    exp_inter <= signed('0' & exp_grande);  -- partimos del exponente mayor
-    ----------------------------------------------------------------------------
-    --  Suma/resta de los “significandos” según signos y sum_rest_select
-    ----------------------------------------------------------------------------
-    comb_mant: process(mant_grande, mant_chico_shifted, sign_grande, sign_chico, sum_rest_select)
+    -------------------------------------------------------------------------
+    --  Paso 6
+    -------------------------------------------------------------------------
+    process(sign_difrent, swap, complemento_paso_4)
     begin
+        if sign_difrent ='0' then
+            sign_r <= signo_a; 
+        elsif swap = '1' then
+            sign_r <= signo_b;
+        elsif swap = '0' and complemento_paso_4 = '0' then
+            sign_r <= signo_a;
+        elsif swap = '0' and complemento_paso_4 = '1' then
+            sign_r <= signo_b;
+        end if ;
 
-        if sign_grande = sign_chico then
-            -- mismos signos: sumar o restar magnitudes (grande – chico)
-            if sum_rest_select = '0' then
-                mant_sum     <= signed('0' & mant_grande) + signed('0' & mant_chico_shifted);
-                signo_result <= sign_grande;
+    end process;
 
-            else
-                mant_sum     <= signed('0' & mant_grande) - signed('0' & mant_chico_shifted);
-                signo_result <= sign_grande;
-
-            end if;
-        else
-            -- signos distintos: resta de magnitudes
-            if mant_grande >= mant_chico_shifted then
-                mant_sum     <= signed('0' & mant_grande) - signed('0' & mant_chico_shifted);
-                signo_result <= sign_grande;
-
-            else
-                mant_sum     <= signed('0' & mant_chico_shifted) - signed('0' & mant_grande);
-                signo_result <= sign_chico;
-
-            end if;
-        end if;
-    end process comb_mant;
-
-    ----------------------------------------------------------------------------
-    --  Normalización: overflow de mantisa (carry) o underflow (leading zeros)
-    ----------------------------------------------------------------------------
-
-    zeros <= count_leading_zeros(std_logic_vector(mant_sum(SGFC_SIZE downto 0)));
-
-    normalize: process(mant_sum, exp_inter, zeros)
+    process(exp_r, reg_dato_a, reg_dato_b)
     begin
-        mant_norm <= (others => '0');
-        exp_norm  <= exp_inter; -- default
-
-        if mant_sum(SGFC_SIZE+1) = '1' then
-            mant_norm <= std_logic_vector(mant_sum(SGFC_SIZE+1 downto 1));
-            exp_norm  <= exp_inter + 1;
-            
-            elsif zeros > 0 then
-                mant_norm <= std_logic_vector( shift_left(mant_sum(SGFC_SIZE downto 0) , zeros) );
-                exp_norm <= exp_inter - zeros;
+        if zero_a = '1' and zero_b = '1' then
+            reg_resultado_d <= sign_r & ZERO_EXP & ZERO_MAN;
+        elsif zero_a ='1' then
+            reg_resultado_d <= signo_b & std_logic_vector(exp_b) & reg_dato_b(TAM_SIGNIFICAND-1 downto 0);
+        elsif zero_b ='1' then
+            reg_resultado_d <= signo_a & std_logic_vector(exp_a) & reg_dato_a(TAM_SIGNIFICAND-1 downto 0);
+        elsif unsigned(exp_r) > EXP_MAX_FINITO then
+            reg_resultado_d <= sign_r & std_logic_vector(EXP_MAX_FINITO) & MANT_MAX;
+        elsif exp_r = ZERO_EXP then
+            reg_resultado_d <= sign_r & ZERO_EXP & ZERO_MAN;
         else
-            mant_norm <= std_logic_vector(mant_sum(SGFC_SIZE downto 0));
-            exp_norm  <= exp_inter;
+            reg_resultado_d <= sign_r & exp_r & sgnf_r;
         end if;
-    end process normalize;
 
-    ----------------------------------------------------------------------------
-    --  Empaquetado final: cero total, infinito o valor normalizado
-    ----------------------------------------------------------------------------
-    comb_result: process(rst_i, is_zero_a, is_zero_b, mant_norm, exp_norm, signo_result)
-    begin
-        -- 1) Reset → salida a 0
-        if rst_i = '1' then
-            reg_resultado_d <= (others => '0');
+    end process;
 
-    -- 2) Caso especial 0 + 0 → resultado 0
-        elsif is_zero_a = '1' and is_zero_b = '1' then
-        reg_resultado_d <= (others => '0');
+    resultado <= reg_resultado_o;
 
-        -- 3) Overflow → saturación al máximo finito
-        elsif exp_norm > to_signed(MAX_EXP_NORMAL, exp_norm'length) then
-            reg_resultado_d <= signo_result
-                            & std_logic_vector(to_unsigned(MAX_EXP_NORMAL, EXP_SIZE))
-                            & ONE_MAN;
-
-        -- 4) Underflow total → cero
-        elsif exp_norm <= 0 then
-            reg_resultado_d <= (others => '0');
-
-        -- 5) Caso normal
-        else
-            reg_resultado_d <= signo_result
-                            & std_logic_vector(exp_norm(EXP_SIZE-1 downto 0))
-                            & mant_norm(SGFC_SIZE-1 downto 0);
-        end if;
-    end process comb_result;
-
-    ----------------------------------------------------------------------------
-    --  Conectar la salida del puerto al registro de salida
-    ----------------------------------------------------------------------------
-    resultado_o <= reg_resultado_o;
-
-end architecture sum_rest_arq;
+end architecture suma_resta_arq;
