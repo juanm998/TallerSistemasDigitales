@@ -18,9 +18,15 @@ architecture unfolded_cordic_arq of unfolded_cordic is
 
     type signed_matrix is array(0 to N) of signed(N+1 downto 0);
 
+    -- Señales funcionales entre etapas
     signal x : signed_matrix;
     signal y : signed_matrix;
     signal z : signed_matrix;
+
+    -- Registros para observación y depuración
+    signal reg_x : signed_matrix;
+    signal reg_y : signed_matrix;
+    signal reg_z : signed_matrix;
 
     component etapa_cordic is
         generic(
@@ -41,12 +47,12 @@ architecture unfolded_cordic_arq of unfolded_cordic is
 
 begin
 
-    -- Entradas a la primera etapa
+    -- Entrada a la etapa 0
     x(0) <= xo;
     y(0) <= yo;
     z(0) <= zo;
 
-    -- Generación de etapas CORDIC
+    -- Instanciación de todas las etapas CORDIC
     gen_cordic: for i in 0 to N-1 generate
         ETAPA_i: etapa_cordic
         generic map(
@@ -65,7 +71,21 @@ begin
         );
     end generate;
 
-    -- Asignación de salidas
+    -- Registro de resultados de cada etapa para trazado
+    registrar: process(all)
+    begin
+        reg_x(0) <= xo;
+        reg_y(0) <= yo;
+        reg_z(0) <= zo;
+
+        for i in 1 to N loop
+            reg_x(i) <= x(i);
+            reg_y(i) <= y(i);
+            reg_z(i) <= z(i);
+        end loop;
+    end process;
+
+    -- Asignación de salidas finales
     xn <= x(N);
     yn <= y(N);
     zn <= z(N);
