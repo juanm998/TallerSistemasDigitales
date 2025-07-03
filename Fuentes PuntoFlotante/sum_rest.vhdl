@@ -14,7 +14,7 @@ use IEEE.numeric_std.all;
 
 entity suma_resta is
     generic(
-        TAM_PALABRA : natural := 12+6+1;  -- 1 signo + 6 exp + 12 mant
+        TAM_PALABRA : natural := 16+6+1;  -- 1 signo + 6 exp + 12 mant
         TAM_EXP     : natural := 6    -- bits de exponente
     );
     port(
@@ -43,9 +43,9 @@ architecture suma_resta_arq of suma_resta is
     ----------------------------------------------------------------------------
     --Funciones Utiles
     ----------------------------------------------------------------------------
-        function shift_right_ones(A : unsigned; N : natural) return unsigned is
-        variable shifted : unsigned(A'range);
-        variable result  : unsigned(A'range);
+    function shift_right_ones(A : unsigned; N : natural) return unsigned is
+    variable shifted : unsigned(A'range);
+    variable result  : unsigned(A'range);
     begin
         
         shifted := shift_right(A, N);
@@ -83,7 +83,7 @@ architecture suma_resta_arq of suma_resta is
 
     -- Campos desempaquetados
     signal signo_a, signo_b                 : std_logic;
-    signal exp_a, exp_b, dif_exponentes     : unsigned(TAM_EXP-1 downto 0);
+    signal exp_a_prima, exp_b_prima, dif_exponentes     : unsigned(TAM_EXP-1 downto 0);
     signal a_prima, b_prima                 : unsigned(TAM_PALABRA-1 downto 0);
     signal mantisa_a,mantisa_b              : unsigned(TAM_SIGNIFICAND downto 0);
     signal mantisa_b_prima_inter            : unsigned(TAM_SIGNIFICAND downto 0);
@@ -126,16 +126,17 @@ begin
     ---------------------------------------------------------------------------
     --  Paso 1
     ---------------------------------------------------------------------------
-    --extraigo exponentes
-    exp_a    <= unsigned(reg_dato_a(TAM_PALABRA-2 downto TAM_SIGNIFICAND));
-    exp_b    <= unsigned(reg_dato_b(TAM_PALABRA-2 downto TAM_SIGNIFICAND));
-
-    swap <= '1' when exp_a < exp_b else '0'; 
+    
+    swap <= '1' when reg_dato_a(TAM_PALABRA-2 downto TAM_SIGNIFICAND) < reg_dato_b(TAM_PALABRA-2 downto TAM_SIGNIFICAND) else '0'; 
     --swapeo si swap es 1
     a_prima <= unsigned(reg_dato_a(TAM_PALABRA-1 downto 0)) when swap = '0' else unsigned(reg_dato_b(TAM_PALABRA-1 downto 0));
     b_prima <= unsigned(reg_dato_b(TAM_PALABRA-1 downto 0)) when swap = '0' else unsigned(reg_dato_a(TAM_PALABRA-1 downto 0));
-    --elijo tentativamente el exponente de a si no hubo swap (deberia ser si swap = 1 )
-    exp_resultado_tent <= exp_a(TAM_EXP-1 downto 0) when swap = '0' else exp_b(TAM_EXP-1 downto 0);
+
+    exp_a_prima    <= unsigned(a_prima(TAM_PALABRA-2 downto TAM_SIGNIFICAND));
+    exp_b_prima    <= unsigned(b_prima(TAM_PALABRA-2 downto TAM_SIGNIFICAND));
+
+    --elijo tentativamente el exponente de a
+    exp_resultado_tent <= exp_a_prima(TAM_EXP-1 downto 0);
 
     zero_a <= '1'
         when (   reg_dato_a(TAM_PALABRA-2 downto TAM_SIGNIFICAND) = ZERO_EXP
@@ -150,8 +151,8 @@ begin
     --  Paso 2
     -------------------------------------------------------------------------
 
-    signo_a       <= reg_dato_a(TAM_PALABRA-1);
-    signo_b       <= reg_dato_b(TAM_PALABRA-1) when reg_operacion = '0' else not reg_dato_b(TAM_PALABRA-1);
+    signo_a       <= a_prima(TAM_PALABRA-1);
+    signo_b       <= b_prima(TAM_PALABRA-1) when reg_operacion = '0' else not b_prima(TAM_PALABRA-1);
     sign_difrent  <= '1' when signo_a /= signo_b else '0';
     
     mantisa_b <= '1' & b_prima(TAM_SIGNIFICAND-1 downto 0);
@@ -163,7 +164,7 @@ begin
 
     reg_p_bit  <= mantisa_b_prima_inter(TAM_SIGNIFICAND downto 0) & '0';
 
-    dif_exponentes <= exp_a - exp_b;
+    dif_exponentes <= exp_a_prima - exp_b_prima;
 
     --En el LSB tiene la guarda
     significand_b_shifted <=  shift_right(reg_p_bit, to_integer(dif_exponentes)) when sign_difrent = '0' else shift_right_ones(reg_p_bit, to_integer(dif_exponentes));
@@ -177,12 +178,12 @@ begin
     -------------------------------------------------------------------------
 
     mantisa_a <= '1' & a_prima(TAM_SIGNIFICAND-1 downto 0);
-    mantisa_sum <= unsigned('0' & mantisa_a) + unsigned('0' & mantisa_pre_sum);
+    mantisa_sum <= unsigned('0' & mantisa_a) + unsigned('0' & mantisa_pre_sum); --HASTA ACA VA BIEN
     carry <= mantisa_sum(mantisa_sum'left);
-    complemento_paso_4 <= '1' when (sign_difrent = '1' and mantisa_sum(mantisa_sum'left-1) = '1' and carry = '0') else '0';
+    complemento_paso_4 <= '1' when (sign_difrent = '1' and mantisa_sum(mantisa_sum'left-2) = '1' and carry = '0') else '0'; --PREGUNTAR POR ESTA CONDICION
 
     mantisa_preliminar <= ((not mantisa_sum(TAM_SIGNIFICAND downto 0)) + 1) when 
-                                                    complemento_paso_4 = '1' else 
+                                                    complemento_paso_4 = '1' else           
                                                     mantisa_sum(TAM_SIGNIFICAND downto 0);
     
     -------------------------------------------------------------------------
@@ -195,7 +196,7 @@ begin
             exp_r  <= std_logic_vector(exp_resultado_tent + 1);
         else
             mantisa_ext <= mantisa_preliminar(TAM_SIGNIFICAND downto 0) & guarda;
-            sgnf_r <= std_logic_vector(shift_left(mantisa_ext, contar_ceros_lider(std_logic_vector(mantisa_ext)))(TAM_SIGNIFICAND downto 1));
+            sgnf_r <= std_logic_vector(shift_left(mantisa_ext, contar_ceros_lider(std_logic_vector(mantisa_ext)))(TAM_SIGNIFICAND  downto 1));
             exp_r  <= std_logic_vector(exp_resultado_tent - contar_ceros_lider(std_logic_vector(mantisa_ext)));
         end if ;
 
@@ -211,9 +212,9 @@ begin
             sign_r <= signo_a; 
         elsif swap = '1' then
             sign_r <= signo_b;
-        elsif swap = '0' and complemento_paso_4 = '0' then
+        elsif swap = '0' and complemento_paso_4 ='0' then --complemento_paso_4 = '0'
             sign_r <= signo_a;
-        elsif swap = '0' and complemento_paso_4 = '1' then
+        elsif swap = '0' and complemento_paso_4 ='1' then --complemento_paso_4 = '1'
             sign_r <= signo_b;
         end if ;
 
@@ -224,9 +225,9 @@ begin
         if zero_a = '1' and zero_b = '1' then
             reg_resultado_d <= sign_r & ZERO_EXP & ZERO_MAN;
         elsif zero_a ='1' then
-            reg_resultado_d <= signo_b & std_logic_vector(exp_b) & reg_dato_b(TAM_SIGNIFICAND-1 downto 0);
+            reg_resultado_d <= signo_b & std_logic_vector(exp_b_prima) & reg_dato_b(TAM_SIGNIFICAND-1 downto 0);
         elsif zero_b ='1' then
-            reg_resultado_d <= signo_a & std_logic_vector(exp_a) & reg_dato_a(TAM_SIGNIFICAND-1 downto 0);
+            reg_resultado_d <= signo_a & std_logic_vector(exp_a_prima) & reg_dato_a(TAM_SIGNIFICAND-1 downto 0);
         elsif unsigned(exp_r) > EXP_MAX_FINITO then
             reg_resultado_d <= sign_r & std_logic_vector(EXP_MAX_FINITO) & MANT_MAX;
         elsif exp_r = ZERO_EXP then

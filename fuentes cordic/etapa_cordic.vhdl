@@ -1,46 +1,51 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.constantes_cordic.all;
 
 entity etapa_cordic is
-    generic(
-        N : natural := 16;
-        NL : natural := 4  -- clog2(N)
-    );
     port(
-        xi   : in  signed(N+1 downto 0);
-        yi   : in  signed(N+1 downto 0);
-        zi   : in  signed(N+1 downto 0);
-        bi   : in  signed(N+1 downto 0);
+        xi   : in  Q3_16_t; --18 dto 0
+        yi   : in  Q3_16_t;
+        zi   : in  Q3_16_t;
+        bi   : in  Q3_16_t; --cte de atan table
         i    : in  std_logic_vector(NL-1 downto 0);
-        xip1 : out signed(N+1 downto 0);
-        yip1 : out signed(N+1 downto 0);
-        zip1 : out signed(N+1 downto 0)
+        modo   : in  std_logic;           -- bit de decisión (externo)
+        xn : out Q3_16_t;
+        yn : out Q3_16_t;
+        zn : out Q3_16_t
     );
 end entity etapa_cordic;
 
 architecture etapa_cordic_arq of etapa_cordic is
-
-    function shift_right(x: in signed(N+1 downto 0); i: in std_logic_vector(NL-1 downto 0)) return signed(N+1 downto 0) is
-        variable result : signed(N+1 downto 0);
-        variable shift_amt : integer;
-    begin
-        shift_amt := to_integer(unsigned(i));
-        result := shift_right(x, shift_amt);  -- lógica aritmética
-        return result;
-    end function;
-
-    signal xsr : signed(N+1 downto 0);
-    signal ysr : signed(N+1 downto 0);
-    signal di  : std_logic;
-
+    
+    signal xsr, ysr : signed(N+2 downto 0);
+    signal di_int : std_logic;
+    
 begin
-    xsr  <= shift_right(xi, i);
-    ysr  <= shift_right(yi, i);
-    di   <= zi(N+1);  -- bit de signo
+    
+    -- Desplazamientos aritméticos
+    xsr <= shift_right(xi, to_integer(unsigned(i)));
+    ysr <= shift_right(yi, to_integer(unsigned(i)));
 
-    xip1 <= xi - ysr when di = '0' else xi + ysr;
-    yip1 <= yi + xsr when di = '0' else yi - xsr;
-    zip1 <= zi - bi  when di = '0' else zi + bi;
+    -- Bit de decisión
+    di_int <= zi(N+2) when modo = '0' else yi(N+2);
 
-end architecture;
+    -- Operaciones CORDIC concurrente:
+    -- Dos ecuaciones distintas según modo y di_int
+
+    xn <=   xi - ysr when (modo = '0' and di_int = '0') else
+            xi + ysr when (modo = '0' and di_int = '1') else
+            xi + ysr when (modo = '1' and di_int = '0') else
+            xi - ysr; -- (modo = '1' and di_int = '1')
+
+    yn <=   yi + xsr when (modo = '0' and di_int = '0') else
+            yi - xsr when (modo = '0' and di_int = '1') else
+            yi - xsr when (modo = '1' and di_int = '0') else
+            yi + xsr; -- (modo = '1' and di_int = '1')
+
+    zn <=   zi - bi  when (modo = '0' and di_int = '0') else
+            zi + bi  when (modo = '0' and di_int = '1') else
+            zi + bi  when (modo = '1' and di_int = '0') else
+            zi - bi; -- (modo = '1' and di_int = '1')
+end architecture etapa_cordic_arq;

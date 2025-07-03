@@ -9,7 +9,7 @@ end entity pf_testbench;
 architecture pf_testbench_arq of pf_testbench is
     constant TCK         : time    := 20 ns;
     constant DELAY       : natural := 1;
-    constant WORD_SIZE_T : natural := 12+6+1;
+    constant WORD_SIZE_T : natural := 16+6+1;
     constant EXP_SIZE_T  : natural := 6;
 
     signal rst           : std_logic := '1';
@@ -27,11 +27,11 @@ architecture pf_testbench_arq of pf_testbench is
     signal z_duv_aux : std_logic_vector(WORD_SIZE_T-1 downto 0) := (others => '0');
     signal z_del_aux : std_logic_vector(WORD_SIZE_T-1 downto 0) := (others => '0');
 
-    file datos : text open read_mode is "fadd_12_6.txt";
+    file datos : text open read_mode is "prueba.txt";
 
     component suma_resta is
         generic(
-            TAM_PALABRA         : natural := 12+6+1;  -- ancho total del dato (signo+exponente+mantisa)
+            TAM_PALABRA         : natural := 16+6+1;  -- ancho total del dato (signo+exponente+mantisa)
             TAM_EXP             : natural := 6    -- ancho del campo exponente
         );
         port(
