@@ -1,0 +1,76 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\ffd\Simulacion
+Egenena
+Z0 w1743538836
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\genEna\Simulacion
+Z4 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna.vhdl
+Z5 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna.vhdl
+l0
+L4
+VI08LK283INd72;Y7j1^2D2
+Z6 OV;C;10.1d;51
+32
+Z7 !s108 1743539412.333000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna.vhdl|
+Z9 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna.vhdl|
+Z10 o-work work -2002 -explicit -O0
+Z11 tExplicit 1
+!s100 I5Sg]Vf8_bncL=_nY@FOG0
+!i10b 1
+Agenena_arq
+R1
+R2
+Z12 DEx4 work 6 genena 0 22 I08LK283INd72;Y7j1^2D2
+l17
+L16
+Vz:GcS@X70GJ33_<hDOF511
+!s100 >S?I=5aZk]8nVYBM26Vzd3
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!i10b 1
+Egenena_tb
+Z13 w1743539407
+R1
+R2
+R3
+Z14 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna_tb.vhdl
+Z15 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna_tb.vhdl
+l0
+L4
+VVL3o@QfLZNLSh7b][@`4j2
+!s100 ]lU0SmUzd^<Z8_Kzj9KlC3
+R6
+32
+!i10b 1
+Z16 !s108 1743539412.375000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna_tb.vhdl|
+Z18 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/genEna/Fuentes/genEna_tb.vhdl|
+R10
+R11
+Agenena_tb_arq
+R12
+R1
+R2
+Z19 DEx4 work 9 genena_tb 0 22 VL3o@QfLZNLSh7b][@`4j2
+l14
+L7
+V0nGSHEH9EILC3Fd[X07T80
+!s100 X7;[4FkfjXzZnXC5nlU>h2
+R6
+32
+!i10b 1
+R16
+R17
+R18
+R10
+R11

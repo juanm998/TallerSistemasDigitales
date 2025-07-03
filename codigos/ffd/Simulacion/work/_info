@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\sumNbit\Simulacion
+Effd
+Z0 w1743532936
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\ffd\Simulacion
+Z5 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd.vhdl
+Z6 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd.vhdl
+l0
+L5
+VTk42>d1e:g_VdE5SPeGbi2
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1743533113.720000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd.vhdl|
+Z10 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd.vhdl|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 S;4NJCXJEf]19`U;X<?Uj1
+!i10b 1
+Affd_arq
+R1
+R2
+R3
+DEx4 work 3 ffd 0 22 Tk42>d1e:g_VdE5SPeGbi2
+l17
+L15
+VIomQURjMB[SX10WSPCzm61
+!s100 :CK9e@J2fDCFChGWYP?D53
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!i10b 1
+Effd_tb
+Z13 w1743533108
+R1
+R2
+R3
+R4
+Z14 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd_tb.vhdl
+Z15 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd_tb.vhdl
+l0
+L5
+V?K5hV:HSXWCEa5zhaT4@81
+!s100 zgH1Vlm?BU?B>k4eONl:I3
+R7
+32
+!i10b 1
+Z16 !s108 1743533113.766000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd_tb.vhdl|
+Z18 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/ffd/Fuentes/ffd_tb.vhdl|
+R11
+R12
+Affd_tb_arq
+R1
+R2
+R3
+Z19 DEx4 work 6 ffd_tb 0 22 ?K5hV:HSXWCEa5zhaT4@81
+l26
+L8
+VLXI:COPB8JP14^Z54zJ5[2
+!s100 VV>ck:jbnHm@oocR[]AGE2
+R7
+32
+!i10b 1
+R16
+R17
+R18
+R11
+R12

@@ -1,0 +1,80 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\13.1
+Esumadorunsigned
+Z0 w1743812401
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\guia1\ej4\Simulacion
+Z5 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/SumadorUnsigned.vhdl
+Z6 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/SumadorUnsigned.vhdl
+l0
+L5
+VE]TUn^<f?KPbjDPlV[^cG3
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1743812629.680000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/SumadorUnsigned.vhdl|
+Z10 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/SumadorUnsigned.vhdl|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 4QB]2`lDW?1:o9RVQk]@92
+!i10b 1
+Asumadorunsigned_arq
+R1
+R2
+R3
+Z13 DEx4 work 15 sumadorunsigned 0 22 E]TUn^<f?KPbjDPlV[^cG3
+l19
+L15
+VgGihQ@>5lI2mo::o4VWf_1
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 dC`[?;fPD[bF5OBYbIC?C2
+!i10b 1
+Esumadorunsigned_tb
+Z14 w1743812525
+R1
+R2
+R3
+R4
+Z15 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/sumadorUnsigned_tb.vhdl
+Z16 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/sumadorUnsigned_tb.vhdl
+l0
+L5
+V=T=P^<j1]7XW5Y_gfbN6;3
+!s100 UnP9CL>;OAVB_ih<Io:dQ0
+R7
+32
+!i10b 1
+Z17 !s108 1743812629.759000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/sumadorUnsigned_tb.vhdl|
+Z19 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej4/Fuentes/sumadorUnsigned_tb.vhdl|
+R11
+R12
+Atest
+R13
+R1
+R2
+R3
+DEx4 work 18 sumadorunsigned_tb 0 22 =T=P^<j1]7XW5Y_gfbN6;3
+l18
+L8
+VB9^T:O4ORi7A1Q>IULX]d2
+!s100 Zi[k^AQ96SS`RDCX2_5QP2
+R7
+32
+!i10b 1
+R17
+R18
+R19
+R11
+R12

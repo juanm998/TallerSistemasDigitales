@@ -1,0 +1,17 @@
+C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity neg
+-- Compiling architecture neg_arq of neg
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg_tb.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg_tb.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity neg_tb
+-- Compiling architecture neg_tb_arq of neg_tb
+
+} {} {}}

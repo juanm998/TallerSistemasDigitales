@@ -1,0 +1,38 @@
+C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl {1 {vcom -work work -2002 -explicit C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity multiplicador
+-- Compiling architecture multiplicador_arq of multiplicador
+
+} {} {}} C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl {1 {vcom -work work -2002 -explicit C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity multiplicador_tb
+-- Compiling architecture test of multiplicador_tb
+-- Loading entity multiplicador
+
+} {} {}} C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl {1 {vcom -work work -2002 -explicit C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity registro
+-- Compiling architecture reg_arq of registro
+
+} {} {}} C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl {1 {vcom -work work -2002 -explicit C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity sumador
+-- Compiling architecture Behavioral of sumador
+
+} {} {}}

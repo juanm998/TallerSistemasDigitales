@@ -1,0 +1,114 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\genEna\Simulacion
+Econtnbits_mod
+Z0 w1743539663
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\contadorNbit_mod\Simulacion
+Z5 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod.vhdl
+Z6 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod.vhdl
+l0
+L7
+VV=NIWL^z9eYAlaM5]hHC[1
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1743542632.154000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod.vhdl|
+Z10 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod.vhdl|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 ldG;D7Ae:C=]DQ5X[2h[A0
+!i10b 1
+Acontnbits_mod_arq
+R1
+R2
+R3
+DEx4 work 13 contnbits_mod 0 22 V=NIWL^z9eYAlaM5]hHC[1
+l41
+L22
+VA=>UO9J4fRoQ5QXGY?a@50
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 Db3_UTm@:WcR8be]iDH1Y0
+!i10b 1
+Econtnbits_mod_tb
+Z13 w1743542622
+R2
+R3
+R4
+Z14 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod_tb.vhdl
+Z15 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod_tb.vhdl
+l0
+L4
+V`z?<G`_XWWhLSRm:UbBLN3
+R7
+32
+Z16 !s108 1743542632.201000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod_tb.vhdl|
+Z18 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod_tb.vhdl|
+R11
+R12
+!s100 `=FDV[OB=@[SHD1m8SF[o0
+!i10b 1
+Acontnbits_mod_tb_arq
+R2
+R3
+DEx4 work 16 contnbits_mod_tb 0 22 `z?<G`_XWWhLSRm:UbBLN3
+l32
+L7
+VR`6]ED_5m2^JcB6DCbZA;3
+R7
+32
+R16
+R17
+R18
+R11
+R12
+!s100 78h4?h^VUFdl^g8M6oF]12
+!i10b 1
+Ereg
+Z19 w1743540580
+R1
+R2
+R3
+R4
+Z20 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/reg.vhdl
+Z21 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/reg.vhdl
+l0
+L5
+VDWN7dcn5]b`H8AN6_]`ZC0
+!s100 3_KFIMldOb@N8f>F_YaeJ1
+R7
+32
+!i10b 1
+Z22 !s108 1743542632.250000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/reg.vhdl|
+Z24 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/reg.vhdl|
+R11
+R12
+Areg_arq
+R1
+R2
+R3
+Z25 DEx4 work 3 reg 0 22 DWN7dcn5]b`H8AN6_]`ZC0
+l23
+L19
+Z26 Vj_z0BZgd9U_b5>[<5ML@H2
+Z27 !s100 8GFA<I7UNNkBjNUH9nk3a0
+R7
+32
+!i10b 1
+R22
+R23
+R24
+R11
+R12

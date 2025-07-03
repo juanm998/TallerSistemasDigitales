@@ -1,0 +1,189 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\mult_nbit\simulacion
+Emultiplicador
+Z1 w1746721899
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\mult_nbit\simulacion
+Z6 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl
+Z7 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl
+l0
+L5
+VRjnF=KV^15oCo79jhajk72
+Z8 OV;C;10.1d;51
+32
+Z9 !s108 1746722069.437000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl|
+Z11 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl|
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+!s100 GGjniGkaE_ND[`k13>RWE3
+!i10b 1
+Amultiplicador_arq
+R2
+R3
+R4
+Z14 DEx4 work 13 multiplicador 0 22 RjnF=KV^15oCo79jhajk72
+l66
+L18
+VD?Mj=O0AMXC^UfRi6IfVK3
+R8
+32
+R9
+R10
+R11
+R12
+R13
+!s100 g_gU04YBgoYkL[YLC7NFU2
+!i10b 1
+Emultiplicador_tb
+Z15 w1746722059
+R2
+R3
+R4
+R5
+Z16 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl
+Z17 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl
+l0
+L5
+VC:HL3W1Be>G75]ezCQLiT1
+R8
+32
+Z18 !s108 1746722069.484000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl|
+Z20 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl|
+R12
+R13
+!s100 7C_>1:ZCEaFVL6Sn:WfBG0
+!i10b 1
+Atest
+R14
+R2
+R3
+R4
+DEx4 work 16 multiplicador_tb 0 22 C:HL3W1Be>G75]ezCQLiT1
+l19
+L8
+VJ8l?^eHl>jCB1J:>3i`UA0
+R8
+32
+R18
+R19
+R20
+R12
+R13
+!s100 1`hS7_58h`Fm?VhZD5WFo2
+!i10b 1
+Eregistro
+Z21 w1746718545
+R2
+R3
+R4
+R5
+Z22 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl
+Z23 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl
+l0
+L5
+VTE51c;`Xk^4oXP<K1b4XF2
+R8
+32
+Z24 !s108 1746722069.537000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl|
+Z26 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl|
+R12
+R13
+!s100 ?CYi>;CP[0Pb1lZU2Te?60
+!i10b 1
+Areg_arq
+R2
+R3
+R4
+DEx4 work 8 registro 0 22 TE51c;`Xk^4oXP<K1b4XF2
+l17
+L16
+V]^AVM728m@>hgBnlVVf>E0
+R8
+32
+R24
+R25
+R26
+R12
+R13
+!s100 JnjkXgZQd__@48ohMO]ja3
+!i10b 1
+Eshift_register
+Z27 w1743826791
+R3
+R4
+R5
+Z28 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/shift_register.vhdl
+Z29 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/shift_register.vhdl
+l0
+L4
+VCFXg^Q1;lbTPP@I43P5fk3
+R8
+32
+Z30 !s108 1746722069.582000
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/shift_register.vhdl|
+Z32 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/shift_register.vhdl|
+R12
+R13
+!s100 A4GfCV5@0NSY<=JABQkf12
+!i10b 1
+Abehavioral
+R3
+R4
+DEx4 work 14 shift_register 0 22 CFXg^Q1;lbTPP@I43P5fk3
+l19
+L17
+Vd5UazMhIW2e@[dM`J6k=i1
+!s100 M5c?1B0fO21k55166Jb2;2
+R8
+32
+R30
+R31
+R32
+R12
+R13
+!i10b 1
+Esumador
+Z33 w1745519014
+R2
+R3
+R4
+R5
+Z34 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl
+Z35 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl
+l0
+L5
+VSSE75PPP;Pf[59G7ZGk0e3
+!s100 BLUo`feNHZSzzoh4]dE841
+R8
+32
+!i10b 1
+Z36 !s108 1746722069.625000
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl|
+Z38 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl|
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+Z39 DEx4 work 7 sumador 0 22 SSE75PPP;Pf[59G7ZGk0e3
+l20
+L16
+Z40 V:zljT_oAU9O4U0d[2z:P01
+Z41 !s100 J:i5oZM_17YnbJ6Ba[Un62
+R8
+32
+!i10b 1
+R36
+R37
+R38
+R12
+R13

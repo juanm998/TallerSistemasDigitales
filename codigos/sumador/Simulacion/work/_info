@@ -1,0 +1,75 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\negador\Simulacion
+Esum
+Z0 w1743290373
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\sumador\Simulacion
+Z4 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum.vhdl
+Z5 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum.vhdl
+l0
+L4
+V]lIFR]IWZ1zz^=:cZOYb52
+Z6 OV;C;10.1d;51
+32
+Z7 !s108 1743291932.634000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum.vhdl|
+Z9 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum.vhdl|
+Z10 o-work work -2002 -explicit -O0
+Z11 tExplicit 1
+!s100 eSTzdG5Z4_JJ]IE2:o]WT1
+!i10b 1
+Asum_arq
+R1
+R2
+DEx4 work 3 sum 0 22 ]lIFR]IWZ1zz^=:cZOYb52
+l15
+L14
+V]_WN2ofj3D8Ol@h?L>1_Q3
+!s100 =8N9H11`S4dD]3foZFQG`0
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!i10b 1
+Esum_tb
+Z12 w1743291922
+R1
+R2
+R3
+Z13 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum_tb.vhdl
+Z14 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum_tb.vhdl
+l0
+L4
+VdX9NPFFjZ?NCN?ga8l:hF0
+!s100 oIn7GU>cLk;=mb9oIe4?M3
+R6
+32
+!i10b 1
+Z15 !s108 1743291932.678000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum_tb.vhdl|
+Z17 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum_tb.vhdl|
+R10
+R11
+Asum_tb_arq
+R1
+R2
+DEx4 work 6 sum_tb 0 22 dX9NPFFjZ?NCN?ga8l:hF0
+l25
+L7
+VALgIlW9J``a@[I9OzGU_o3
+!s100 `R<;6CP[[Yld0l@IO0<>f0
+R6
+32
+!i10b 1
+R15
+R16
+R17
+R10
+R11

@@ -1,0 +1,247 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\13.1
+Econtador
+Z0 w1746903211
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\mult_nbit\simulacion
+Z5 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador.vhdl
+Z6 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador.vhdl
+l0
+L5
+V6T]GiJ8Xa9zKhl5HE[WLf2
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1746903218.293000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador.vhdl|
+Z10 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador.vhdl|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 baSfDkPSoJ>fYM1I@0a6O3
+!i10b 1
+Acontador_arq
+R1
+R2
+R3
+DEx4 work 8 contador 0 22 6T]GiJ8Xa9zKhl5HE[WLf2
+l16
+L13
+Vah7jBNK^5oI<5HLX144V42
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 Ui;nT6>>X`oTiL^hKN1be3
+!i10b 1
+Emultiplicador
+Z13 w1745519632
+R1
+R2
+R3
+Z14 dC:\Users\Usuario\Desktop\Taller_de_Sistemas_Digitales\codigos\mult_nbit\simulacion
+Z15 8C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl
+Z16 FC:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl
+l0
+L5
+VRjnF=KV^15oCo79jhajk72
+R7
+32
+Z17 !s108 1745519648.275000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl|
+Z19 !s107 C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit.vhdl|
+R11
+R12
+!s100 GGjniGkaE_ND[`k13>RWE3
+!i10b 1
+Amultiplicador_arq
+R1
+R2
+R3
+Z20 DEx4 work 13 multiplicador 0 22 RjnF=KV^15oCo79jhajk72
+l45
+L18
+VFTfVFL7I0b;nGbI[Ab0Bl3
+R7
+32
+R17
+R18
+R19
+R11
+R12
+!s100 5g3Cfe?5LKM_fC[Q@E1hc2
+!i10b 1
+Emultiplicador_tb
+Z21 w1745519187
+R1
+R2
+R3
+R14
+Z22 8C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl
+Z23 FC:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl
+l0
+L5
+Vb]oi<Gn1QCIKLI`7;IV9=0
+R7
+32
+Z24 !s108 1745519648.369000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl|
+Z26 !s107 C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/mult_Nbit_tb.vhdl|
+R11
+R12
+!s100 ]g=89=3T:1mmGmdJ^QC?O0
+!i10b 1
+Atest
+R20
+R1
+R2
+R3
+DEx4 work 16 multiplicador_tb 0 22 b]oi<Gn1QCIKLI`7;IV9=0
+l20
+L8
+VJF5<Ba6<_@BaBQ_JI_bzi2
+R7
+32
+R24
+R25
+R26
+R11
+R12
+!s100 8:S_I4=:SGShT0;HzEA8b1
+!i10b 1
+Pmy_pkg
+w1744168802
+R4
+8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/my_pkg.vhdl
+FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/my_pkg.vhdl
+l0
+L1
+VBlczVOGY3Yj[H>@eFkaOU2
+R7
+32
+R11
+R12
+!s100 3WYiPL;dhQR^>ni924KX33
+!i10b 1
+!s108 1746903218.467000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/my_pkg.vhdl|
+!s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/my_pkg.vhdl|
+Eregistro
+Z27 w1745518977
+R1
+R2
+R3
+R14
+Z28 8C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl
+Z29 FC:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl
+l0
+L5
+VTE51c;`Xk^4oXP<K1b4XF2
+R7
+32
+Z30 !s108 1745519648.463000
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl|
+Z32 !s107 C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/registro.vhdl|
+R11
+R12
+!s100 ?CYi>;CP[0Pb1lZU2Te?60
+!i10b 1
+Areg_arq
+R1
+R2
+R3
+DEx4 work 8 registro 0 22 TE51c;`Xk^4oXP<K1b4XF2
+l17
+L16
+V]^AVM728m@>hgBnlVVf>E0
+R7
+32
+R30
+R31
+R32
+R11
+R12
+!s100 JnjkXgZQd__@48ohMO]ja3
+!i10b 1
+Esemaforo_tb
+Z33 w1744169654
+Z34 DPx4 work 6 my_pkg 0 22 BlczVOGY3Yj[H>@eFkaOU2
+R1
+R2
+R3
+R4
+Z35 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/semaforo_tb.vhdl
+Z36 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/semaforo_tb.vhdl
+l0
+L6
+VDl20kR<i@[SXmdc=[g[hX0
+!s100 kXZMFkH288Mhh9OfUkBYD2
+R7
+32
+!i10b 1
+Z37 !s108 1746903218.512000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/semaforo_tb.vhdl|
+Z39 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/semaforo_tb.vhdl|
+R11
+R12
+Asemaforo_tb_arq
+R34
+R1
+R2
+R3
+DEx4 work 11 semaforo_tb 0 22 Dl20kR<i@[SXmdc=[g[hX0
+l51
+L9
+VYZF5GmlFGMi[C9:jo>nKf0
+!s100 1?6=1icTjEUk4;9DW_mgj3
+R7
+32
+!i10b 1
+R37
+R38
+R39
+R11
+R12
+Esumador
+Z40 w1745519012
+R1
+R2
+R3
+R14
+Z41 8C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl
+Z42 FC:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl
+l0
+L5
+VSSE75PPP;Pf[59G7ZGk0e3
+R7
+32
+Z43 !s108 1745519648.541000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl|
+Z45 !s107 C:/Users/Usuario/Desktop/Taller_de_Sistemas_Digitales/codigos/mult_nbit/fuentes/sumador.vhdl|
+R11
+R12
+!s100 BLUo`feNHZSzzoh4]dE841
+!i10b 1
+Abehavioral
+R1
+R2
+R3
+DEx4 work 7 sumador 0 22 SSE75PPP;Pf[59G7ZGk0e3
+l20
+L16
+V:zljT_oAU9O4U0d[2z:P01
+R7
+32
+R43
+R44
+R45
+R11
+R12
+!s100 J:i5oZM_17YnbJ6Ba[Un62
+!i10b 1

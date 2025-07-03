@@ -1,0 +1,80 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\guia1\ej4\Simulacion
+Erestadorsigned
+Z0 w1743813465
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\guia1\ej5\simulacion
+Z5 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned.vhdl
+Z6 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned.vhdl
+l0
+L5
+Vo@Ad<ZQ6@bjI?Z5?Dj5Eg1
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1743813688.147000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned.vhdl|
+Z10 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned.vhdl|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 `E1P@:M;n[8nZ193[9<>C0
+!i10b 1
+Arestadorsigned_arq
+R1
+R2
+R3
+Z13 DEx4 work 14 restadorsigned 0 22 o@Ad<ZQ6@bjI?Z5?Dj5Eg1
+l20
+L16
+V0f0:dN[;TXhH;3jb]<[FH1
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 Be=8^`ac7^TQehUSA=Oc^0
+!i10b 1
+Erestadorsigned_tb
+Z14 w1743813540
+R1
+R2
+R3
+R4
+Z15 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned_tb.vhdl
+Z16 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned_tb.vhdl
+l0
+L5
+Vz_lP>2kdom_=DZ`DVV^WP1
+!s100 =Q=]VWzGhTSbc<[Wm_jb=0
+R7
+32
+!i10b 1
+Z17 !s108 1743813688.195000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned_tb.vhdl|
+Z19 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/guia1/ej5/fuentes/restadorSigned_tb.vhdl|
+R11
+R12
+Atb
+R13
+R1
+R2
+R3
+DEx4 work 17 restadorsigned_tb 0 22 z_lP>2kdom_=DZ`DVV^WP1
+l16
+L8
+VX4:ICV5NMo?_9=]_:_8=K3
+!s100 =IiU>l>lgIW;69YGghcIj2
+R7
+32
+!i10b 1
+R17
+R18
+R19
+R11
+R12

@@ -1,0 +1,17 @@
+C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity sum
+-- Compiling architecture sum_arq of sum
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum_tb.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumador/Fuentes/sum_tb.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity sum_tb
+-- Compiling architecture sum_tb_arq of sum_tb
+
+} {} {}}

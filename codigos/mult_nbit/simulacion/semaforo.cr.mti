@@ -1,0 +1,51 @@
+C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/my_pkg.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/my_pkg.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Compiling package my_pkg
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/fsm_semaforo.vhdl {0 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/fsm_semaforo.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+** Error: (vcom-11) Could not find work.my_pkg.
+
+** Error: C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/fsm_semaforo.vhdl(4): (vcom-1195) Cannot find expanded name "work.my_pkg".
+
+** Error: C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/fsm_semaforo.vhdl(4): Unknown expanded name.
+** Error: C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/fsm_semaforo.vhdl(6): VHDL Compiler exiting
+
+} {7.0 8.0 9.0 10.0 11.0 13.0} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/semaforo_tb.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/semaforo_tb.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package my_pkg
+-- Compiling entity semaforo_tb
+-- Compiling architecture semaforo_tb_arq of semaforo_tb
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity contador
+-- Compiling architecture contador_arq of contador
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador_ch_st.vhdl {0 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador_ch_st.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+** Error: (vcom-11) Could not find work.my_pkg.
+
+** Error: C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador_ch_st.vhdl(4): (vcom-1195) Cannot find expanded name "work.my_pkg".
+
+** Error: C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador_ch_st.vhdl(4): Unknown expanded name.
+** Error: C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/tps/semaforo/fuentes/contador_ch_st.vhdl(6): VHDL Compiler exiting
+
+} {7.0 8.0 9.0 10.0 11.0 13.0} {}}

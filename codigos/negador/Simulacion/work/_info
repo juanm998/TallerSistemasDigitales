@@ -1,0 +1,75 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\13.1
+Eneg
+Z0 w1743288046
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\negador\Simulacion
+Z4 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg.vhdl
+Z5 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg.vhdl
+l0
+L4
+V8>5ID?RUI6_Ucdi?WT^gj0
+Z6 OV;C;10.1d;51
+32
+Z7 !s108 1743288750.735000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg.vhdl|
+Z9 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg.vhdl|
+Z10 o-work work -2002 -explicit -O0
+Z11 tExplicit 1
+!s100 LXGXm<F8Ho?H0ZlMmd3BZ1
+!i10b 1
+Aneg_arq
+R1
+R2
+DEx4 work 3 neg 0 22 8>5ID?RUI6_Ucdi?WT^gj0
+l12
+L11
+VMahH<aGiEQcRhl[eZZ_a@0
+!s100 Ul5[XRAg3<aP9R6V4z<gc2
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!i10b 1
+Eneg_tb
+Z12 w1743288746
+R1
+R2
+R3
+Z13 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg_tb.vhdl
+Z14 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg_tb.vhdl
+l0
+L4
+VcC?Wc_9@5nA2`T5ah0>`00
+!s100 ?W0UGY2klz=e3>P?AAj9T1
+R6
+32
+!i10b 1
+Z15 !s108 1743288750.777000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg_tb.vhdl|
+Z17 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/negador/Fuentes/neg_tb.vhdl|
+R10
+R11
+Aneg_tb_arq
+R1
+R2
+Z18 DEx4 work 6 neg_tb 0 22 cC?Wc_9@5nA2`T5ah0>`00
+l19
+L7
+V2J;J:7FR78WeQYA==ff>N1
+!s100 V1hMkWbfEOQi]?RSOR;P`0
+R6
+32
+!i10b 1
+R15
+R16
+R17
+R10
+R11

@@ -1,0 +1,114 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\sumador\Simulacion
+Esum
+Z0 w1743290373
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 dC:\Users\mateo\OneDrive\Escritorio\20251C\Taller_de_Sistemas_Digitales\codigos\sumNbit\Simulacion
+Z4 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sum.vhdl
+Z5 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sum.vhdl
+l0
+L4
+V]lIFR]IWZ1zz^=:cZOYb52
+Z6 OV;C;10.1d;51
+32
+Z7 !s108 1743526594.706000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sum.vhdl|
+Z9 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sum.vhdl|
+Z10 o-work work -2002 -explicit -O0
+Z11 tExplicit 1
+!s100 eSTzdG5Z4_JJ]IE2:o]WT1
+!i10b 1
+Asum_arq
+R1
+R2
+DEx4 work 3 sum 0 22 ]lIFR]IWZ1zz^=:cZOYb52
+l15
+L14
+V]_WN2ofj3D8Ol@h?L>1_Q3
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!s100 =8N9H11`S4dD]3foZFQG`0
+!i10b 1
+Esumnbit
+Z12 w1743527398
+Z13 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R1
+R2
+R3
+Z14 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit.vhdl
+Z15 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit.vhdl
+l0
+L6
+VO=W9][HkoLhzcGb_NFM_;0
+R6
+32
+Z16 !s108 1743530626.661000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit.vhdl|
+Z18 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit.vhdl|
+R10
+R11
+!s100 RM_3`P?@a7T23SZa2]UWO0
+!i10b 1
+Asumnbit_arq
+R13
+R1
+R2
+DEx4 work 7 sumnbit 0 22 O=W9][HkoLhzcGb_NFM_;0
+l32
+L19
+VRPPS?hIHN]7:mS5J@1nWX0
+!s100 ldnQ:@oZnheC?:e0NgzDH3
+R6
+32
+R16
+R17
+R18
+R10
+R11
+!i10b 1
+Esumnbit_tb
+Z19 w1743530618
+R13
+R1
+R2
+R3
+Z20 8C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit_tb.vhdl
+Z21 FC:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit_tb.vhdl
+l0
+L5
+VZn9E3z9bzN;m1gl?ISolS1
+!s100 QSVFYEKU`eAjSR7ak84Kj0
+R6
+32
+!i10b 1
+Z22 !s108 1743530626.710000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit_tb.vhdl|
+Z24 !s107 C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit_tb.vhdl|
+R10
+R11
+Asumnbit_tb_arq
+R13
+R1
+R2
+Z25 DEx4 work 10 sumnbit_tb 0 22 Zn9E3z9bzN;m1gl?ISolS1
+l31
+L8
+VHS2YAkjXfa^bJ7FSG57J31
+!s100 ^XX?gYX2Y1BW[`f9ch95a3
+R6
+32
+!i10b 1
+R22
+R23
+R24
+R10
+R11

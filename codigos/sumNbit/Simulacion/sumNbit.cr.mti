@@ -1,0 +1,19 @@
+C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity sumNbit
+-- Compiling architecture sumNbit_arq of sumNbit
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit_tb.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/sumNbit/Fuentes/sumNbit_tb.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity sumNbit_tb
+-- Compiling architecture sumNbit_tb_arq of sumNbit_tb
+
+} {} {}}

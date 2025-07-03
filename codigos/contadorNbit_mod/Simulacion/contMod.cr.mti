@@ -1,0 +1,19 @@
+C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/contadorNbit_mod.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity contNbits_Mod
+-- Compiling architecture contNbits_Mod_arq of contNbits_Mod
+
+} {} {}} C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/reg.vhdl {1 {vcom -work work -2002 -explicit C:/Users/mateo/OneDrive/Escritorio/20251C/Taller_de_Sistemas_Digitales/codigos/contadorNbit_mod/Fuentes/reg.vhdl
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity reg
+-- Compiling architecture reg_arq of reg
+
+} {} {}}
